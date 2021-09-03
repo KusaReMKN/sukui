@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>お前の救いメーカー</title>
+<style>div { position: absolute; }</style>
+</head>
+<body style="position: relative; overflow: hidden;">
+<script>
+'use strict';
+const k = Math.random();
+let h = 0;
+function main() {
+	document.body.style.background = `hsl(${h++}, 100%, 50%)`;
+	const div = document.createElement('div');
+	div.style.position = 'absolute';
+	div.style.display = 'inline-block';
+	div.style.fontSize = `${Math.random() * 64}px`;
+	div.style.color = `hsl(${Math.random() * 360}, ${Math.random() * 100}%, ${Math.random() * 100}%)`;
+	div.style.wordBreak = 'keep-all';
+	div.textContent = '救いはあります';
+	div.style.top = `${Math.random() * window.innerHeight * 2 - window.innerHeight}px`;
+	div.style.left = `${Math.random() * window.innerWidth * 2 - window.innerWidth}px`;
+	div.style.transform = `rotate(${Math.PI * (2 * Math.random() - 1)}rad)`;
+	document.body.appendChild(div);
+	window.requestAnimationFrame(main);
+}
+document.write(
+	k > .99 ? '救いはあります' :
+	k > .90 ? '救いはありました' :
+	k > .50 ? '救いはありません' :
+	k > .10 ? '救いはないです' :
+	'');
+if (k > .99) {
+	document.body.style.background = `hsl(${h}, 100%, 50%)`;
+	setTimeout(() => main(), 1000);
+}
+</script>
+</body>
+</html>
